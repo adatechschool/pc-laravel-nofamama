@@ -37,7 +37,6 @@
             @endif
 
             <h1>Bienvenue sur Larinsta ! Le réseau social 2.0</h1>
-        
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         @nofamama

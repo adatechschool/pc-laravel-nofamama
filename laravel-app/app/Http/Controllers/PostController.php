@@ -14,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // prend tout les posts en affichant le plus récent d'abord
+        $posts = Post::latest()->get();
+        // retourne la vue index
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            // $attributes = request()->validate([
+            //     'img_url'=>'required',
+            //     'description'=>'required',
+            //     'user_id' =>'required',
+            // ]);
+            // $posts = Post::create($attributes);
+            // return redirect()->route('posts.index');
     }
 
     /**
