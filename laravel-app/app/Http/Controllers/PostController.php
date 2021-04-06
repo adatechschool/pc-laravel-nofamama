@@ -38,13 +38,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-            // $attributes = request()->validate([
-            //     'img_url'=>'required',
-            //     'description'=>'required',
-            //     'user_id' =>'required',
-            // ]);
-            // $posts = Post::create($attributes);
-            // return redirect()->route('posts.index');
+            $attributes = request()->validate([
+                 'img_url'=>'required',
+                 'description'=>'required',
+                 'user_id' =>'required',
+             ]);
+             $posts = Post::create($attributes);
+             return redirect()->route('posts.index');
     }
 
     /**

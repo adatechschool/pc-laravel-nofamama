@@ -1,16 +1,9 @@
-<!-- <x-guest-layout>
-  {{$post->user->name}}: 
-  {{$post->description}}
-  <img src="{{ $post->img_url }}">
-</x-guest-layout> -->
-
-@section('title', 'Home')
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
 
-@foreach ($posts as $post)
-    @include('partials.summary')
-@endforeach
+    @foreach ($posts as $post)
+{{--        @include('partials.summary')--}}
+    @endforeach
 
 @endsection
