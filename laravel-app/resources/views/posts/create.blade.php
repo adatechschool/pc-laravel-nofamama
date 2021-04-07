@@ -7,7 +7,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Put your picture url</label>
-                        <input type="url" id="img_url" name="img_url">
+                        <input type="url" id="img_url" name="img_url" size="80">
                     </div>
                     <div class="form-group">
                         <label>Post Description</label>
