@@ -25,10 +25,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/test', function () {
+    return view('users.test');
+});
 
 Route::resource('posts', PostController::class);
 
 Route::resource('users', UserController::class);
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

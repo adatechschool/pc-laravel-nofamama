@@ -15,7 +15,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -46,10 +45,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
-    {   $posts = User::find($user->id)->posts;
+    {
+        $posts = User::find($user->id)->posts;
         return view('users.profile', [
             'user' => $user,
-            'posts'=> $posts
+            'posts' => $posts,
         ]);
     }
 

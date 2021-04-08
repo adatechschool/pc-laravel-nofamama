@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'biography',
+        'image'
     ];
 
     /**
@@ -45,5 +46,10 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getPostsCountAttribute()
+    {
+        return $this->posts()->count();
     }
 }
