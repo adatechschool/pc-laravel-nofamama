@@ -103,7 +103,7 @@
 
     <!--post images-->
 
-    <div class="flex pt-4">
+    <div class="flex pt-4" style="max-width:336px">
         @foreach ($posts as $post)
         <div class="flex-1 text-center px-4 py-2 m-2">
             <img class="w-full" src="{{ $post->img_url }}" />

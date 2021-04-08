@@ -39,21 +39,41 @@
             </div>
             <!-- icons-->
             <div class="lg:ml-4 lg:flex lg:items-center">
-                <a href="{{ route('users.show', Auth::user()->id) }}">
-                    <button class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out" aria-label="Notifications">
-                        <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </button>
-                </a>
+                @if (Route::has('login'))
+                    <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
+                        @auth
+                        <a href="{{ route('users.show', Auth::user()->id) }}">
+                            <button class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out" aria-label="Notifications">
+                                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </button>
+                        </a>
+                        <a href="{{ route('posts.create') }}">
+                            <button class="flex-shrink-0 p-1 border-transparent text-gray-700 rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 transition duration-150 ease-in-out" aria-label="Notifications">
+                                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </button>
+                        </a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            @endif
+                        @endauth
+                    <!-- </div> -->
+                @endif
                 <!-- Profile dropdown -->
                 <div class="ml-4 relative flex-shrink-0">
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
+                            @if (Route::has('login'))
+                                @auth
                                 <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <div>{{ Auth::user()->name }}</div>
+                                        <div>{{ Auth::user()->name }}</div>
 
                                     <div class="ml-1">
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -61,6 +81,8 @@
                                         </svg>
                                     </div>
                                 </button>
+                                @endauth
+                            @endif
                             </x-slot>
 
                             <x-slot name="content">
