@@ -29,6 +29,8 @@ Route::get('/test', function () {
     return view('users.test');
 });
 
+Route::post('users/{id}', 'App\Http\Controllers\UserController@update');
+
 Route::resource('posts', PostController::class);
 
 Route::resource('users', UserController::class);

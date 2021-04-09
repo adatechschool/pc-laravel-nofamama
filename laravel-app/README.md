@@ -60,3 +60,24 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Tips
+
+Reset My SQL:
+
+```
+# Lister tout les conteneurs
+docker ps --all
+
+# Supprimer le conteneur de la BDD
+docker rm CONTAINER ID(conteneur image MySQL)
+
+# Lister les volumes
+docker volume ls
+
+# Supprimer le volume du conteneur MYSQL
+docker volume rm VOLUME NAME(volume MySQL)
+
+
+
+```

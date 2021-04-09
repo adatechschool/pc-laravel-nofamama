@@ -8,7 +8,7 @@
             <div class="text-left pl-4 pt-3">
                 <span class="text-base text-gray-700 text-2xl mr-2">{{$user->name}}</span>
                 <span class="text-base font-semibold text-gray-700 mr-2">
-                    <button class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Edit Profile</button>
+                    <a href="{{ route('users.edit', Auth::user()->id) }}"><button class="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Edit Profile</button></a>
                 </span>
                 <span class="text-base font-semibold text-gray-700">
                     <button class="p-1 border-transparent text-gray-700 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600" aria-label="Notifications">

@@ -35,7 +35,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -47,6 +47,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         $posts = User::find($user->id)->posts;
+
         return view('users.profile', [
             'user' => $user,
             'posts' => $posts,
@@ -61,7 +62,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.editProfile', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -73,7 +76,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
+        $request->validate([
+
+            'name' => 'required',
+            'email' => 'required',
+            'biography' => 'required',
+        ]);
+
+        $user->update($request->all());
+        
+        return redirect()->route('users.show', $user->id);
     }
 
     /**
